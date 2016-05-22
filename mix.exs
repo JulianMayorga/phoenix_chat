@@ -3,7 +3,7 @@ defmodule Chat.Mixfile do
 
   def project do
     [app: :chat,
-     version: "0.0.3",
+     version: "0.0.4",
      elixir: "~> 1.0",
      elixirc_paths: ["lib", "web"],
      compilers: [:phoenix] ++ Mix.compilers,
@@ -15,7 +15,7 @@ defmodule Chat.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Chat, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :edeliver, :phoenix_live_reload]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :edeliver, :phoenix_ecto, :postgrex]]
   end
 
   # Specifies your project dependencies
@@ -24,7 +24,6 @@ defmodule Chat.Mixfile do
   defp deps do
     [{:phoenix, "~> 1.1.2"},
      {:phoenix_html, "~> 2.4"},
-     {:phoenix_live_reload, "~> 1.0"},
      {:postgrex, "0.10.0"},
      {:phoenix_ecto, "2.0.1"},
      {:edeliver, ">= 1.2.6"},
