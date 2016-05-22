@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-APP="phoenix_chat" # name of your release
+APP="chat" # name of your release
 
 BUILD_HOST="159.203.237.153" # host where to build the release
 BUILD_USER="root" # local user at build host
 BUILD_AT="/git/phoenix_chat/builds" # build directory on build host
-RELEASE_DIR="/git/phoenix_chat/builds/rel/phoenix_chat"
+RELEASE_DIR="/git/phoenix_chat/builds/rel/chat"
 RELEASE_VERSION=0.0.1
 
 STAGING_HOSTS="159.203.237.153" # staging / test hosts separated by space
 STAGING_USER="git" # local user at staging hosts
-TEST_AT="/test/phoenix_chat" # deploy directory on staging hosts. default is DELIVER_TO
+TEST_AT="/test/chat" # deploy directory on staging hosts. default is DELIVER_TO
 
 PRODUCTION_HOSTS="159.203.237.153" # deploy / production hosts separated by space
 PRODUCTION_USER="root" # local user at deploy hosts
