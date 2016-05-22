@@ -1,45 +1,25 @@
 use Mix.Config
 
-# For production, we configure the host to read the PORT
-# from the system environment. Therefore, you will need
-# to set PORT=80 before running your server.
-#
-# You should also configure the url host to something
-# meaningful, we use this information when generating URLs.
+# We don't run a server during test. If one is required,
+# you can enable the server option below.
 config :chat, Chat.Endpoint,
-  http: [port: {:system, "PORT"}],
-  url: [host: "example.com"]
+  http: [port: 4800],
+  debug_errors: true,
+  server: true,
+  code_reloader: false,
+  cache_static_lookup: false,
+  check_origin: false,
+  watchers: []
 
-# ## SSL Support
-#
-# To get SSL working, you will need to add the `https` key
-# to the previous section:
-#
-#  config:chat, Chat.Endpoint,
-#    ...
-#    https: [port: 443,
-#            keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-#            certfile: System.get_env("SOME_APP_SSL_CERT_PATH")]
-#
-# Where those two env variables point to a file on
-# disk for the key and cert.
+# Print only warnings and errors during test
+config :logger, level: :warn
 
-# Do not print debug messages in production
-config :logger, level: :info
+# Configure your database
+config :chat, Chat.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "chat_test",
+  size: 1,
+  max_overflow: false
 
-# ## Using releases
-#
-# If you are doing OTP releases, you need to instruct Phoenix
-# to start the server for all endpoints:
-#
-#     config :phoenix, :serve_endpoints, true
-#
-# Alternatively, you can configure exactly which server to
-# start per endpoint:
-#
-#     config :chat, Chat.Endpoint, server: true
-#
-
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
